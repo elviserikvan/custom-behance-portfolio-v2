@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Cantata+One|Open+Sans");
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 300;
+  color: #353537;
+  font-family: "Open Sans", Arial, sans-serif;
+  background-color: #fafafa;
+}
+
+header {
+  color: #fff;
+  padding: 3em 2em;
+  background-color: #303746;
+}
+header img {
+  width: 80px;
+  display: block;
+  margin: 1em auto;
+  border-radius: 100%;
+}
+header .user_info {
+  text-align: center;
+}
+header .user_info h2 {
+  color: #e0e0e0;
+  font-weight: 400;
+  font-family: "Cantata One", Georgia, Times, serif;
+}
+header .user_info ul {
+  margin: 1em 0px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .user_info ul li {
+  color: #aeb6c7;
+  margin: 0px 0.5em;
+}
+header .user_info .user_location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #717f9e;
+}
+header .user_info .user_location i {
+  margin-right: 1em;
+}

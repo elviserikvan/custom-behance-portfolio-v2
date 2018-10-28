@@ -3,5 +3,18 @@ html(lang="en")
 head
 	meta(charset="UTF-8")
 	title Hello World
+	link(rel="stylesheet", href="/css/main_styles.css")
+	link(rel="stylesheet", href="/css/foundation-icons.css")
 body
-	h1 This is from the views folder
+	header
+		.header_content
+			img(src=user.images['100'], alt="")
+
+			.user_info
+				h2 #{user.first_name} #{user.last_name}
+				ul
+					each field in user.fields
+						li= field
+				span.user_location
+					i.fi-marker
+					p #{user.location}

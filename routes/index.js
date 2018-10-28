@@ -7,18 +7,29 @@ Router.get('/', (req, res) => {
 	let req_url = `https://api.behance.net/v2/users/${process.env.BEHANCE_USER_ID}?client_id=${process.env.BEHANCE_API_KEY}`;
 
 	// Send the request to the behance api
-	https.get(req_url, (res) => {
+	https.get(req_url, (resp) => {
 
 		let data = '';
 
 		// A chunk of data has been recieved.
-		res.on('data', (chunk) => {
+		resp.on('data', (chunk) => {
 			data += chunk;
 		});
 
 		// The whole response has been recieved.
-		res.on('end', () => {
-			console.log(JSON.parse(data));
+		resp.on('end', () => {
+			let user_data = JSON.parse(data);
+
+			// Check if there's any error with the API
+			if (user_data.http_code === 200) {
+				// console.log(user_data);
+				res.render('index', {user: user_data.user, test: 'nojoda'});
+			}else {
+				console.log(user_data);
+
+				// Change to an actual error handler
+				res.send('Error');
+			}
 		});
 	})
 
@@ -27,7 +38,7 @@ Router.get('/', (req, res) => {
 		console.log(`Error: ${err.message}`);
 	});
 
-	res.render('index');
+	// res.render('index');
 });
 
 module.exports = Router;
