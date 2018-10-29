@@ -53,3 +53,59 @@ header .user_info .user_location {
 header .user_info .user_location i {
   margin-right: 1em;
 }
+
+main .projects_content {
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+main .projects_content .project {
+  margin: 1em;
+  width: calc(100% / 3.5);
+  display: inline-block;
+}
+main .projects_content .project .project_img {
+  width: 100%;
+}
+main .projects_content .project .project_img img {
+  width: 100%;
+}
+main .projects_content .project .project_info {
+  text-align: center;
+}
+main .projects_content .project .project_info h2 {
+  font-size: 14px;
+  margin: 0.5em 0px;
+  color: #557682;
+}
+main .projects_content .project .project_info ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .projects_content .project .project_info ul li {
+  font-size: 12px;
+  margin: 0px 0.5em;
+  color: #aeaeae;
+}
+main .projects_content .project .project_info ul li:after {
+  content: ",";
+}
+main .projects_content .project .project_info ul li:last-child:after {
+  content: " ";
+}
+
+footer {
+  padding: 3em;
+  text-align: center;
+  color: #aeaeae;
+}
+footer .icon_p a {
+  font-size: 3em;
+  color: #1769ff;
+  text-decoration: none;
+}

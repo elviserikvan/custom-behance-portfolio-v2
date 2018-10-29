@@ -18,3 +18,28 @@ body
 				span.user_location
 					i.fi-marker
 					p #{user.location}
+
+	main
+		if projects
+			.projects_content
+
+				each project in projects
+
+					div(class="project", id=project.id)
+						.project_img
+							img(src=project.covers['404'])
+						.project_info
+							h2= project.name
+							ul
+								li= project.fields[0]
+								li= project.fields[1]
+								li= project.fields[2]
+
+		else
+			h1 No hay projectos que mostrar
+
+	footer
+		.prowe-by
+			p Powered By
+			p.icon_p
+				a(href="#").fi-social-behance.power-loco
