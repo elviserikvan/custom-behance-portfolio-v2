@@ -70,8 +70,8 @@ main .projects_content {
 }
 main .projects_content .project {
   margin: 1em;
-  width: calc(100% / 3.5);
   display: inline-block;
+  width: calc(100% / 3.5);
 }
 main .projects_content .project .project_img {
   width: 100%;
@@ -130,10 +130,15 @@ main .projects_content .project .project_img .data-overlay .data-wrap > span {
 main .projects_content .project .project_info {
   text-align: center;
 }
-main .projects_content .project .project_info h2 {
+main .projects_content .project .project_info a, main .projects_content .project .project_info h2 {
   font-size: 14px;
+  font-weight: 600;
   margin: 0.5em 0px;
+  text-decoration: none;
   color: #557682;
+}
+main .projects_content .project .project_info a:hover, main .projects_content .project .project_info h2:hover {
+  text-decoration: underline;
 }
 main .projects_content .project .project_info ul {
   list-style: none;

@@ -39,7 +39,8 @@ body
 									i.fi-like
 									span #{project.stats.appreciations}
 						.project_info
-							h2= project.name
+							//- h2= project.name
+							a(href=project.url)= project.name
 							ul
 								li= project.fields[0]
 								li= project.fields[1]

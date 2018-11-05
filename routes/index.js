@@ -37,7 +37,7 @@ Router.get('/', (req, res) => {
 					resp_pro.on('end', () => {
 						projects_data = JSON.parse(proj_data);
 
-						console.log(projects_data.projects[0].stats);
+						console.log(projects_data);
 
 						if (projects_data.http_code === 200) {
 							res.render('index', {user: user_data.user, projects: projects_data.projects});
