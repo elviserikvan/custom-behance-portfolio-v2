@@ -46,7 +46,15 @@ header {
 
 			li {
 				color: lighten($dark_blue, 50%);
-				margin: 0px 0.5em;
+				margin: 0px 0.3em;
+
+				&:after {
+					content: ",";
+				}
+
+				&:last-child:after {
+					content: " ";
+				}
 			}
 		}
 
@@ -78,9 +86,48 @@ main {
 
 			.project_img {
 				width: 100%;
+				position: relative;
 
 				img {
 					width: 100%;
+					border-radius: 5px;
+				}
+
+				.data-overlay {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					width: 100%;
+					height: 100%;
+
+					opacity: 0;
+					display: flex;
+					border-radius: 5px;
+					align-items: center;
+					flex-direction: column;
+					justify-content: center;
+					background-color: $transparent_black;
+					color: lighten($transparent_black, 90%);
+					@include transition(opacity, 0.2s, 0.1s, ease-out);
+
+					&:hover {
+						opacity: 1;
+
+						.data-wrap {
+							opacity: 1;
+						}
+					}
+
+					.data-wrap {
+						opacity: 0;
+						font-size: 1.5em;
+
+						> span {
+							margin-left: 1em;
+						}
+					}
 				}
 			}
 

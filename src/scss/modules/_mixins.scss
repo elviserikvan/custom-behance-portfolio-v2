@@ -4,3 +4,27 @@
 	align-items: center;
 	justify-content: center;
 }
+
+// The transition property with all the prefixes
+@mixin transition($property, $duration, $delay, $timing_function) {
+
+    transition-delay: $delay;
+    transition-duration: $duration;
+	transition-property: $property;
+    transition-timing-function: $timing_function;
+
+    -o-transition-delay: $delay;
+    -o-transition-duration: $duration;
+	-o-transition-property: $property;
+    -o-transition-timing-function: $timing_function;
+
+    -moz-transition-delay: $delay;
+    -moz-transition-duration: $duration;
+	-moz-transition-property: $property;
+    -moz-transition-timing-function: $timing_function;
+
+    -webkit-transition-delay: $delay;
+    -webkit-transition-duration: $duration;
+	-webkit-transition-property: $property;
+    -webkit-transition-timing-function: $timing_function;
+}

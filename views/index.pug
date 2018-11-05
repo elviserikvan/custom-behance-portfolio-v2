@@ -28,6 +28,16 @@ body
 					div(class="project", id=project.id)
 						.project_img
 							img(src=project.covers['404'])
+							.data-overlay
+								span.data-wrap.views
+									i.fi-eye
+									span #{project.stats.views}
+								span.data-wrap.comments
+									i.fi-comment
+									span #{project.stats.comments}
+								span.data-wrap.likes
+									i.fi-like
+									span #{project.stats.appreciations}
 						.project_info
 							h2= project.name
 							ul
@@ -42,4 +52,4 @@ body
 		.prowe-by
 			p Powered By
 			p.icon_p
-				a(href="#").fi-social-behance.power-loco
+				a(href="https://www.behance.net/cavesagarcb09e", target="_blank").fi-social-behance.power-loco
