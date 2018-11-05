@@ -25,8 +25,6 @@ Router.get('/', (req, res) => {
 			// Check if there's any error with the API
 			if (user_data.http_code === 200) {
 
-
-
 				// Pull all the projects of the user
 				https.get(pro_req_url, (resp_pro) => {
 					
@@ -39,7 +37,7 @@ Router.get('/', (req, res) => {
 					resp_pro.on('end', () => {
 						projects_data = JSON.parse(proj_data);
 
-						console.log(projects_data.projects[0].covers);
+						console.log(projects_data.projects[0].stats);
 
 						if (projects_data.http_code === 200) {
 							res.render('index', {user: user_data.user, projects: projects_data.projects});
@@ -52,8 +50,6 @@ Router.get('/', (req, res) => {
 					console.log(`Error: ${err}`);
 				});
 
-
-				// res.render('index', {user: user_data.user, test: 'nojoda'});
 			}else {
 				console.log(user_data);
 
