@@ -39,4 +39,4 @@ node app.js
 
 ![Land Page](https://github.com/GamertodArk/custom-behance-portfolio-v2/blob/master/project-screenshots/Screenshot_2018-11-06%20Hello%20World.png "Land Page")
 
-![Hover over project](https://github.com/GamertodArk/custom-behance-portfolio-v2/blob/master/project-screenshots/Screenshot_2018-11-06%20Hello%20World.png "Hover over project")
+![Hover over project](https://github.com/GamertodArk/custom-behance-portfolio-v2/blob/master/project-screenshots/Screenshot_2018-11-06%20Hello%20World(1).png "Hover over project")
