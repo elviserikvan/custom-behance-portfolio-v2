@@ -5,8 +5,8 @@ This is a custom behance portfolio built with NodeJS. I have another custom beha
 ## Some important updates
 
 - The App Key is not in the FrontEnd
-- The call to the Behance API ara called from the BackEnd
 - The projects are shown 3 in a row
+- The http requests send to the Behance API ara sent from the BackEnd
 
 ## How to install 
 
@@ -34,3 +34,9 @@ And run the app
 ```
 node app.js
 ```
+
+## Project Screenhots
+
+![Land Page](https://github.com/GamertodArk/custom-behance-portfolio-v2/blob/master/project-screenshots/Screenshot_2018-11-06%20Hello%20World.png "Land Page")
+
+![Hover over project](https://github.com/GamertodArk/custom-behance-portfolio-v2/blob/master/project-screenshots/Screenshot_2018-11-06%20Hello%20World.png "Hover over project")
