@@ -13,7 +13,7 @@ This is a custom behance portfolio built with NodeJS. I have another custom beha
 Run this line
 
 ```
-git clone <repossitory>
+git clone git@github.com:GamertodArk/custom-behance-portfolio-v2.git
 ```
 
 Then create a new file called `.env` and add the following data
