@@ -2,6 +2,7 @@ require('dotenv').config();
 let path = require('path');
 let express = require('express');
 let indexRoutes = require('./routes/index');
+const PORT = 4000;
 
 // Init app
 let app = express();
@@ -20,4 +21,4 @@ app.set('view engine', 'pug');
 app.use('/', indexRoutes);
 
 // Set port
-app.listen(process.env.APP_PORT, () => console.log(`Server running on port ${process.env.APP_PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

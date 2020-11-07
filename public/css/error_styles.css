@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Cantata+One|Open+Sans");
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.message-wrapper {
+  width: 100%;
+  padding: 2em 1em;
+  text-align: center;
+  font-family: "Roboto", "Arial", sans-serif;
+}
+.message-wrapper h2 {
+  color: red;
+  font-size: 24pt;
+}
+.message-wrapper .icon {
+  list-style: none;
+  font-size: 100pt;
+  color: #ca1f1f;
+}
+.message-wrapper p {
+  padding-top: 1em;
+  text-align: center;
+}
+
+/*# sourceMappingURL=error_styles.css.map */

@@ -1,68 +1,30 @@
+const axios = require('axios')
 let https = require('https');
 let Router = require('express').Router();
 
-Router.get('/', (req, res) => {
-
-	// Request URL
-	let user_req_url = `https://api.behance.net/v2/users/${process.env.BEHANCE_USER_ID}?client_id=${process.env.BEHANCE_API_KEY}`;
-	let pro_req_url = `https://api.behance.net/v2/users/${process.env.BEHANCE_USER_ID}/projects?client_id=${process.env.BEHANCE_API_KEY}&per_page=${process.env.BEHANCE_PER_PAGE}`;
+Router.get('/', async  (req, res) => {
 
 
-	// Send the request to the behance api
-	https.get(user_req_url, (resp) => {
+	try {
+		// Request user data
+		let user_req_url = `https://api.behance.net/v2/users/${process.env.BEHANCE_USER_ID}?client_id=${process.env.BEHANCE_CLIENT_ID}`;
+		let user_data = await axios.get(user_req_url)
+		if(user_data.data.http_code != 200) throw "An error ocurred requesting user data"
 
-		let data = '';
+		// Get projects data
+		let pro_req_url = `https://api.behance.net/v2/users/${process.env.BEHANCE_USER_ID}/projects?client_id=${process.env.BEHANCE_CLIENT_ID}&per_page=20`;
+		let projects_data = await axios.get(pro_req_url)
+		
+		if (projects_data.data.http_code == 200) {
+			res.render('index', {user: user_data.data.user, projects: projects_data.data.projects, title: 'Custom Behance Portfolio!'});
+		} else {
+			res.render('index', {user: user_data.data.user, projects: false, title: 'Custom Behance Portfolio!'});
+		}
+	} catch (e){
+		console.log(`Error: ${e.message}`)	
+		res.render('error', {title: 'An Error Occurred!'})
+	}
 
-		// A chunk of data has been recieved.
-		resp.on('data', (chunk) => {
-			data += chunk;
-		});
-
-		// The whole response has been recieved.
-		resp.on('end', () => {
-			let user_data = JSON.parse(data);
-
-			// Check if there's any error with the API
-			if (user_data.http_code === 200) {
-
-				// Pull all the projects of the user
-				https.get(pro_req_url, (resp_pro) => {
-					
-					let proj_data = '';
-
-					resp_pro.on('data', (proj_chuck) => {
-						proj_data += proj_chuck;
-					});
-
-					resp_pro.on('end', () => {
-						projects_data = JSON.parse(proj_data);
-
-						console.log(projects_data);
-
-						if (projects_data.http_code === 200) {
-							res.render('index', {user: user_data.user, projects: projects_data.projects});
-						}else {
-							res.render('index', {user: user_data.user, projects: false});
-						}
-					});
-
-				}).on('error', (err) => {
-					console.log(`Error: ${err}`);
-				});
-
-			}else {
-				console.log(user_data);
-
-				// Change to an actual error handler
-				res.send('Error');
-			}
-		});
-	})
-
-	// Error handler
-	.on('error', (err) => {
-		console.log(`Error: ${err.message}`);
-	});
 });
 
 module.exports = Router;
